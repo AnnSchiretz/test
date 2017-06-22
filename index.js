@@ -27,4 +27,4 @@ CLIENT.get(ASSETS.url).then(function(){
     base.wait(1000, {xpath:'//*[@id="root"]/div/div/div/div/div[2]/button'});
     base.click(By.xpath('//*[@id="root"]/div/div/div/div/div[2]/button'));
 });
-//CLIENT.quit();
+CLIENT.quit();
