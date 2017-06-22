@@ -10,13 +10,12 @@ const USER = {
     email:'gornichnay@example.com',
     pass: 'password'
 };
-
 const CLIENT = new WD.Builder()
     .usingServer(ASSETS.host)
     .withCapabilities(BROWSER)
     .build();
 
-var base = require('./constants/baseFunctions')(CLIENT, WD);
+const base = require('./constants/baseFunctions')(CLIENT, WD);
 console.log(base);
 
 CLIENT.get(ASSETS.url).then(function(){
