@@ -1,0 +1,9 @@
+# Ignore configuration files that may contains sensitive information
+
+package-lock.json
+*.jar
+chromedriver
+
+#folders
+.idea/
+node_modules/
