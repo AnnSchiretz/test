@@ -7,7 +7,7 @@ const ASSETS = {
     url: 'http://hm.mermaid.cloud/'
 };
 const USER = {
-    email:'gornichnay@example.com',
+    email:'gornichnay1@example.com',
     pass: 'password'
 };
 const CLIENT = new WD.Builder()
@@ -16,8 +16,6 @@ const CLIENT = new WD.Builder()
     .build();
 
 const base = require('./constants/baseFunctions')(CLIENT, WD);
-
-
 CLIENT.get(ASSETS.url).then(function(){
     base.wait(2000, {name:'email'});
     base.getElement({name:'email'}).sendKeys(USER.email);
@@ -33,5 +31,4 @@ CLIENT.get(ASSETS.url).then(function(){
     CLIENT.wait(WD.until.elementLocated({xpath:'//*[@id="root"]/div/div/div/div[3]/div[10]/center[2]/input'}));
     base.click({xpath:'//*[@id="root"]/div/div/div/div[3]/div[10]/center[2]/input'});
 });
-
 //CLIENT.quit();
