@@ -19,18 +19,19 @@ const base = require('./constants/baseFunctions')(CLIENT, WD);
 
 
 CLIENT.get(ASSETS.url).then(function(){
-    base.wait(2000, {name:'email'});
+    base.wait(7000, {name:'email'});
     base.getElement({name:'email'}).sendKeys(USER.email);
     base.getElement({name:'password'}).sendKeys(USER.pass);
     base.click(By.xpath('//*[@id="sign-in-form"]/div[3]/input'));
-    base.wait(2000, {xpath:'//*[@id="root"]/div/div/div/div/div[2]/button'});
+    base.wait(10000, {xpath:'//*[@id="root"]/div/div/div/div/div[2]/button'});
     base.click(By.xpath('//*[@id="root"]/div/div/div/div/div[2]/button'));
-    base.wait(2000,{xpath:'//*[@id="root"]/div/div/div/div[1]/div[2]/div[3]/a'});
+    base.wait(10000,{xpath:'//*[@id="root"]/div/div/div/div[1]/div[2]/div[3]/a'});
     base.click({xpath:'//*[@id="root"]/div/div/div/div[1]/div[2]/div[3]/a'});
+    base.wait(10000,{xpath:'//*[@id="root"]/div/div/div/div[1]/div[2]/div[3]/a'});
     base.click({xpath:'//*[@id="root"]/div/div/div/div[1]/div[2]/div[3]/a'});
     // CLIENT.wait(WD.until.elementLocated({xpath:'//*[@id="root"]/div/div/div/div[3]/div[10]/center[1]/input'}));
     // base.click({xpath:'//*[@id="root"]/div/div/div/div[3]/div[10]/center[1]/input'});
-    CLIENT.wait(WD.until.elementLocated({xpath:'//*[@id="root"]/div/div/div/div[3]/div[10]/center[2]/input'}));
+    base.waitTime({xpath:'//*[@id="root"]/div/div/div/div[3]/div[10]/center[2]/input'});
     base.click({xpath:'//*[@id="root"]/div/div/div/div[3]/div[10]/center[2]/input'});
 });
 
