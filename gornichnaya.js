@@ -35,4 +35,4 @@ CLIENT.get(ASSETS.url).then(function(){
     base.click({xpath:'//*[@id="root"]/div/div/div/div[3]/div[10]/center[2]/input'});
 });
 
-//CLIENT.quit();
+CLIENT.quit();
