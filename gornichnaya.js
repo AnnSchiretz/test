@@ -6,10 +6,6 @@ const ASSETS = {
     host: 'http://localhost:4444/wd/hub',
     url: 'http://hm.mermaid.cloud/'
 };
-const USER = {
-    email:'gornichnay@example.com',
-    pass: 'password'
-};
 const CLIENT = new WD.Builder()
     .usingServer(ASSETS.host)
     .withCapabilities(BROWSER)
@@ -19,20 +15,16 @@ const base = require('./constants/baseFunctions')(CLIENT, WD);
 
 
 CLIENT.get(ASSETS.url).then(function(){
-    base.wait(7000, {name:'email'});
-    base.getElement({name:'email'}).sendKeys(USER.email);
-    base.getElement({name:'password'}).sendKeys(USER.pass);
-    base.click(By.xpath('//*[@id="sign-in-form"]/div[3]/input'));
-    base.waitTime(By.xpath('//*[@id="root"]/div/div/div/div/div[2]/button'));
-    base.click({xpath:'//*[@id="root"]/div/div/div/div/div[2]/button'});
-    base.waitTime({xpath:'//*[@id="root"]/div/div/div/div[1]/div[2]/div[3]/a'});
-    base.click({xpath:'//*[@id="root"]/div/div/div/div[1]/div[2]/div[3]/a'});
-    // base.wait({xpath:'//*[@id="root"]/div/div/div/div[1]/div[2]/div[3]/a'});
-    base.click({xpath:'//*[@id="root"]/div/div/div/div[1]/div[2]/div[3]/a'});
-    // CLIENT.wait(WD.until.elementLocated({xpath:'//*[@id="root"]/div/div/div/div[3]/div[10]/center[1]/input'}));
-    // base.click({xpath:'//*[@id="root"]/div/div/div/div[3]/div[10]/center[1]/input'});
-    base.waitTime({xpath:'//*[@id="root"]/div/div/div/div[3]/div[10]/center[2]/input'});
-    base.click({xpath:'//*[@id="root"]/div/div/div/div[3]/div[10]/center[2]/input'});
-});
+    base.waitTime(By.xpath('//*[@id="root"]/div/div/ul/li[1]/a'));
+    base.getElement(By.xpath('//*[@id="root"]/div/div/ul/li[1]/a'));
+    base.click(By.xpath('//*[@id="root"]/div/div/ul/li[1]/a'));
+    //выполнение поставленных задач
+    base.waitTime(By.xpath('//*[@id="root"]/div/div/div[2]/div[2]/div/div/div/ul/li/a/div'));
+    base.getElement(By.xpath('//*[@id="root"]/div/div/div[2]/div[2]/div/div/div/ul/li/a/div'));
+    base.click(By.xpath('//*[@id="root"]/div/div/div[2]/div[2]/div/div/div/ul/li/a/div'));
+    //уборка номера
+    base.waitTime(By.xpath('//*[@id="root"]/div/div/div[2]/div[1]/div[2]/div[3]/a/img'));
+    base.click(By.xpath('//*[@id="root"]/div/div/div[2]/div[1]/div[2]/div[3]/a/img'));
+ });
 
-CLIENT.quit();
+// CLIENT.quit();

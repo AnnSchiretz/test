@@ -4,16 +4,23 @@ module.exports = function(CLIENT, WD){
     }
 
     function getElement(element) {
-        return CLIENT.findElement(element);
+        CLIENT.findElement(element);
     }
 
     function click(element) {
-        CLIENT.findElement(element).click();
+        getElement(element);
+        CLIENT.findElement(element);
+        click();
+    }
+    function waitTime (element) {
+        CLIENT.wait(WD.until.elementLocated(element));
     }
 
     return {
         wait: wait,
         getElement: getElement,
-        click: click
+        click: click,
+        waitTime: waitTime
     };
+
 };
